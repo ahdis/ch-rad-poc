@@ -1,31 +1,32 @@
 # Example/Documentation for this file
 # https://fshschool.org/docs/sushi/configuration/#exhaustive-example
 
-id: ch.fhir.ig.ch-rad-order
-canonical: http://fhir.ch/ig/ch-rad-order
-name: CH_RAD_Order
-title: "CH RAD-Order (R4)"
-description: Implementation guide CH RAD-Order (R4)
+id: ch.ahdis.ig.ch-rad-poc
+canonical: http://ahdis.ch/ig/ch-rad-poc
+name: CH_RAD_POC
+title: "CH RAD-ProofOfConcept (R4)"
+description: Implementation guide CH RAD Proof Of Concept (R4)
 status: active
 license: CC-BY-SA-4.0
 copyright: CC-BY-SA-4.0
 jurisdiction: urn:iso:std:iso:3166#CH
-date: 2021-06-17
+date: 2021-10-25
 version: 0.1.0
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU 1 Ballot
+releaseLabel: STU 1
 publisher:
-  name: HL7 Switzerland
+  name: ahdis
 contact:
-  name: Juerg P. Bleuer
+  name: Oliver Egger
   telecom:
     system: url
-    value: https://www.hl7.ch
+    value: https://www.ahdis.ch
 dependencies:
   ch.fhir.ig.ch-orf: 0.10.0
   ch.fhir.ig.ch-core: 2.0.0
-
+  ch.fhir.ig.ch-rad-order: 0.1.0
+  ch.fhir.ig.ch-epr-mhealth: 0.2.0
 pages:
   index.html:
     title: Home

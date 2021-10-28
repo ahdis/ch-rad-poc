@@ -1,7 +1,7 @@
-Instance: QuestionnaireRadiologyOrder
+Instance: QuestionnaireRadiologyOrderPoC
 InstanceOf: ChOrfQuestionnaire
-Title: "Questionnaire Radiology Order"
-Description: "Example for Questionnaire"
+Title: "Questionnaire Radiology Order PoC"
+Description: "Questionnaire Radiology Order for Proof Of Concpt"
 
 /* -------------------------------------------------------------------------------------------------------
 Nur absolute "Required" sind markiert; es wird dann noch relative Required geben
@@ -27,13 +27,13 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * extension[2].extension[2].valueString = "The Bundle that is to be used to pre-populate the form"
 
 * url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
-* name = "QuestionnaireRadiologyOrder"
-* title = "Questionnaire Radiology Order"
+* name = "QuestionnaireRadiologyOrderPoC"
+* title = "Questionnaire Radiology Order PoC"
 * derivedFrom = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
 * status = #active
 * subjectType = #Patient
-* date = "2021-02-24"
-* publisher = "HL7 Switzerland"
+* date = "2021-10-27"
+* publisher = "ahdis"
 
 // ---------- order (Auftrag) ----------
 * item[+].linkId = "order"
@@ -843,6 +843,7 @@ Codierung vorderhand nicht vorgesehen)
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-maneuver-type"
 
+/* gives a shushi error, nees maybe added to the
 * item[=].item[+].linkId = "orderDetail.guidanceForAction"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:guidanceForAction"
 * item[=].item[=].text = "Handlungsanleitung"
@@ -856,7 +857,7 @@ Codierung vorderhand nicht vorgesehen)
 * item[=].item[=].enableBehavior = #any
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
-
+*/
 
 /*----------------------------------------------------------------------
 Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll

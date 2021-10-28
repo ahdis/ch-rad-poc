@@ -1,0 +1,55 @@
+@startuml
+hide footbox
+autonumber 1 1 "<b>[00]"
+
+box Placer Organization
+ participant "PACS" as PlacerPacs
+ participant "Placer App" as PlacerApp
+ participant "FHIR Server" as PlacerFhirServer
+ participant "Intermediary" as PlacerIntermediary
+endbox
+box Filler Organization
+ participant "Intermediary" as FillerIntermediary
+ participant "FHIR Server" as FillerFhirServer
+ participant "Filler" as FillerApp
+ participant "PACS" as FillerPacs
+endbox
+
+activate PlacerApp
+activate PlacerFhirServer
+PlacerApp --> PlacerFhirServer: Create Radiology Order\nwith references to\nprevious imaging studies
+deactivate PlacerApp
+activate PlacerIntermediary
+PlacerIntermediary --> PlacerFhirServer: Get new Radiology order
+deactivate PlacerFhirServer
+deactivate PlacerApp
+activate PlacerPacs
+PlacerIntermediary --> PlacerPacs: Get referenced previous Imaging Studies
+deactivate PlacerPacs
+activate FillerIntermediary
+PlacerIntermediary --> FillerIntermediary: Transfer Order and\nImaging Studies
+activate FillerPacs
+FillerIntermediary --> FillerPacs: Store previous Imaging Studies
+deactivate FillerPacs
+activate FillerFhirServer
+FillerIntermediary --> FillerFhirServer: Create Radiology Order
+activate FillerApp
+FillerApp --> FillerFhirServer: Get new Radiology Order
+FillerApp --> FillerApp: Fullfil\nRadiology\nOrder
+FillerApp --> FillerFhirServer: Create PDF Report\nwith references\n to new imaging studies
+deactivate FillerApp
+FillerIntermediary --> FillerFhirServer: Get PDF Report\n with references to\n imaging studies
+deactivate FillerFhirServer
+activate FillerPacs
+FillerIntermediary --> FillerPacs: Get referenced Imaging Studies
+deactivate FillerPacs
+FillerIntermediary --> PlacerIntermediary: Transfer PDF Report\nand Imaging Studies
+deactivate FillerIntermediary
+activate PlacerPacs
+PlacerIntermediary --> PlacerPacs: Store imaging Imaging Studies
+deactivate PlacerPacs
+activate PlacerFhirServer
+PlacerIntermediary --> PlacerFhirServer: Store PDF Report\nSet Radiology Order\nto completed 
+deactivate PlacerFhirServer
+deactivate PlacerIntermediary
+@enduml

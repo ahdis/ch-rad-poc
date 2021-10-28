@@ -1,0 +1,137 @@
+@host = https://test.ahdis.ch/matchbox/fhir
+
+### Initial Setup for Usecase
+
+### Setup PlacerOrganizaiton
+PUT {{host}}/Organization/PlacerOrganization HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Organization-PlacerOrganization.json
+
+
+### Setup PlacerFiller
+PUT {{host}}/Device/PlacerIntermediary HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Device-PlacerIntermediary.json
+
+### Setup PlacerFiller
+PUT {{host}}/Device/FillerIntermediary HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Device-FillerIntermediary.json
+
+
+### [01] Create a rad-order
+
+###      Setup Bundle as Radiology Order
+PUT {{host}}/Bundle/bundle-order1 HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Bundle-bundle-order1.json
+
+###      Setup Reference to original ImagingStudy
+PUT {{host}}/ImagingStudy/imagingstudy-order1 HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/ImagingStudy-imagingstudy-order1.json
+
+###      Create Task referencing Bundle and ImagingStudy
+PUT {{host}}/Task/task-order1 HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Task-task-order1.json
+
+### [02] Get Rad-order
+
+###      Poll for ready tasks
+GET {{host}}/Task?status=ready&requester=Organization/PlacerOrganization HTTP/1.1
+Accept: application/json+fhir
+
+###      Get task that 
+###      This could be used to get bundle directly, but there is no references search parameter for input Task?_id=task-order1&_include=Task:focus could be
+GET {{host}}/Task/task-order1 HTTP/1.1
+Accept: application/json+fhir
+
+
+###      Udpate the task, set status to completed 
+###      This could be used to get bundle directly, but there is no references search parameter for input Task?_id=task-order1&_include=Task:focus could be
+GET {{host}}/ImagingStudy/imagingstudy-order1 HTTP/1.1
+Accept: application/json+fhir
+
+###
+GET {{host}}/Bundle/bundle-order1 HTTP/1.1
+Accept: application/json+fhir
+
+###
+GET {{host}}/ImagingStudy/imagingstudy-order1 HTTP/1.1
+Accept: application/json+fhir
+
+###     Update Task to in-progress, adjust modified and add new owner via JSON Patch
+PATCH {{host}}/Task/task-order1 HTTP/1.1
+Content-Type: application/json-patch+json
+
+[ 
+    {  "op": "replace", "path": "/status", "value": "in-progress" },
+    {  "op": "replace", "path": "/lastModified", "value": "2021-10-27T15:46:34+02:00" },
+    {  "op": "add", "path": "/owner", "value": { "reference": "Device/PlacerIntermediary",  "display": "PlacerIntermediary" } }
+]
+
+###      Create Task referencing Bundle and ImagingStudy (need to adjsut the id in ask-task-order1-inprogress)
+PUT {{host}}/Task/task-order1 HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Task-task-order1-inprogress.json
+
+
+
+### [06] Create Radiology Order
+POST {{host}}/ HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Bundle-order1-filler-transaction.json
+
+###
+@task-id = 1279
+###      "response": {
+###        "status": "201 Created",
+###        "location": "Task/1279/_history/1",
+###        "etag": "1",
+###        "lastModified": "2021-10-28T11:06:11.980+00:00"
+###      }
+GET {{host}}/Task/{{task-id}} HTTP/1.1
+Accept: application/json+fhir
+
+
+### [07] Get new Radiology Order
+
+GET {{host}}/Task?status=ready&requester=Device/FillerIntermediary
+Accept: application/json+fhir
+
+
+
+
+### [09] Update Radiology Order
+### note you need to remove the id in the Task-order-filler otherwise the update does nt work
+POST {{host}}/ HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Bundle-order1-update-filler-transaction.json
+
+
+### Get PDF Report with references to imaging studies [10]
+GET {{host}}/Task?status=completed&requester=Device/FillerIntermediary&modified=gt2021-10-27T14:56:58+02:00
+Accept: application/json+fhir
+
+### Set Radiology Order to completed [14] 
+### note you need to remove the id in the Task-order-filler otherwise the update does nt work
+POST {{host}}/ HTTP/1.1
+Content-Type: application/json+fhir
+
+< output/Bundle-order1-update-placer-complete-transaction.json
+
+###      Poll for ready tasks
+GET {{host}}/Task?status=completed&requester=Organization/PlacerOrganization HTTP/1.1
+Accept: application/json+fhir
+
+

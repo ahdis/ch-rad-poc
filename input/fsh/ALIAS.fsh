@@ -16,6 +16,20 @@ Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
 Alias:   V3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
 Alias:   AppointmentStatus =                http://hl7.org/fhir/appointmentstatus
 
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+Alias: $DCM = http://dicom.nema.org/resources/ontology/DCM
+Alias: $sct = http://snomed.info/sct
+Alias: $v3-ParticipationType = http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+Alias: $task-performer-type = http://terminology.hl7.org/CodeSystem/task-performer-type
+Alias: $device-name-type = http://hl7.org/fhir/device-nametype
+Alias: $loinc = http://loinc.org
+Alias: $administrative-gender = http://hl7.org/fhir/administrative-gender
+Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
+Alias: $radlex = http://www.radlex.org
+Alias: $request-priority = http://hl7.org/fhir/request-priority
+Alias: $appointmentstatus = http://hl7.org/fhir/appointmentstatus
+Alias: $ch-rad-order-requested-service = http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service
+
 
 // Code Systems/ Value Sets from ORF
 Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
@@ -30,6 +44,7 @@ Alias:   ChCorePatient =                http://fhir.ch/ig/ch-core/StructureDefin
 Alias:   ChCorePractitioner =           http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner
 Alias:   ChCorePractitionerRole =       http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole
 Alias:   ChCoreOrganization =           http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
+Alias:   ChCoreComposition =            http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-composition
 
 
 // CH ORF SD
