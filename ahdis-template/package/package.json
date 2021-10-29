@@ -1,0 +1,12 @@
+{
+  "name": "ch.ahdis.ig.template",
+  "version": "0.0.1",
+  "type": "fhir.template",
+  "license": "CC0-1.0",
+  "description": "Local template for ahdis",
+  "author": "http://ahdis.ch",
+	"base":  "ch.fhir.ig.template",
+  "dependencies": {
+    "ch.fhir.ig.template": "current"
+  }
+}

@@ -35,7 +35,7 @@ activate FillerFhirServer
 FillerIntermediary --> FillerFhirServer: Create Radiology Order
 activate FillerApp
 FillerApp --> FillerFhirServer: Get new Radiology Order
-FillerApp --> FillerApp: Fullfil\nRadiology\nOrder
+FillerApp --> FillerApp: Fulfill\nRadiology\nOrder
 FillerApp --> FillerFhirServer: Create PDF Report\nwith references\n to new imaging studies
 deactivate FillerApp
 FillerIntermediary --> FillerFhirServer: Get PDF Report\n with references to\n imaging studies
