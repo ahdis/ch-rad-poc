@@ -7,6 +7,23 @@ Content-Type: application/json+fhir
 
 < output/Questionnaire-QuestionnaireRadiologyOrderPoC.json
 
+### Setup Default Questionnaire for Prefilled Items
+
+PUT {{host}}/QuestionnaireResponse/SenderPrefilledQuestionnaireResponse
+Content-Type: application/json+fhir
+
+< output/QuestionnaireResponse-SenderPrefilledQuestionnaireResponse.json
+
+###
+GET {{host}}/QuestionnaireResponse?_sort=-_lastUpdated
+Content-Type: application/json+fhir
+
+
+###
+GET {{host}}/QuestionnaireResponse/1376
+Content-Type: application/json+fhir
+1376
+
 ### Setup PlacerOrganizaiton
 PUT {{host}}/Organization/PlacerOrganization HTTP/1.1
 Content-Type: application/json+fhir

@@ -26,7 +26,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * extension[2].extension[2].url = "description"
 * extension[2].extension[2].valueString = "The Bundle that is to be used to pre-populate the form"
 
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrderPoC"
 * name = "QuestionnaireRadiologyOrderPoC"
 * title = "Questionnaire Radiology Order PoC"
 * derivedFrom = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
@@ -483,6 +483,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name"
 * item[=].item[=].item[=].item[=].text = "Name der Organisation"
 * item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "sender.author.organization.gln"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition-ch-core-organization-definitions.html#Organization.identifier:GLN"
+* item[=].item[=].item[=].item[=].text = "GLN"
+* item[=].item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.streetAddressLine"
@@ -587,6 +592,12 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name"
 * item[=].item[=].item[=].text = "Name der Organisation"
 * item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiver.organization.gln"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition-ch-core-organization-definitions.html#Organization.identifier:GLN"
+* item[=].item[=].item[=].text = "GLN"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "receiver.organization.streetAddressLine"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.line"
