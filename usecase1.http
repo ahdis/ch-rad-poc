@@ -1,6 +1,11 @@
 @host = https://test.ahdis.ch/matchbox/fhir
 
-### Initial Setup for Usecase
+### Setup for RadOrder PoC
+
+PUT {{host}}/Questionnaire/QuestionnaireRadiologyOrderPoC
+Content-Type: application/json+fhir
+
+< output/Questionnaire-QuestionnaireRadiologyOrderPoC.json
 
 ### Setup PlacerOrganizaiton
 PUT {{host}}/Organization/PlacerOrganization HTTP/1.1

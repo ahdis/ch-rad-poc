@@ -42,14 +42,18 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].type = #group
 * item[=].required = true
 
-* item[=].item[+].linkId = "order.title"
+* item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].linkId = "order.title"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.title"
 * item[=].item[=].text = "Titel"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
 
-* item[=].item[+].linkId = "order.type"
+* item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].linkId = "order.type"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.type"
 * item[=].item[=].text = "Typ"
 * item[=].item[=].type = #choice
@@ -57,7 +61,9 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].readOnly = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.typeCode"
 
-* item[=].item[+].linkId = "order.category"
+* item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].linkId = "order.category"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.category"
 * item[=].item[=].text = "Kategorie"
 * item[=].item[=].type = #choice
@@ -1069,6 +1075,20 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[=].text = "Daten"
 * item[=].item[=].item[=].type = #string
 
+* item[=].item[+].linkId = "previousResults.imagingStudy"
+* item[=].item[=].text = "Bilder (DICOM Studien)"
+* item[=].item[=].type = #group
+* item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.uid"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].text = "DICOM Study UID"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].text = "ACSN"
+* item[=].item[=].item[=].type = #string
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"

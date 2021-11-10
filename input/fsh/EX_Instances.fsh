@@ -1047,7 +1047,7 @@ Usage: #example
 * identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
 * identifier.value = "1234"
 * status = #ready
-* businessStatus.text = "Order Proof Of Cooncep 1 Example"
+* description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T12:48:59+02:00"
@@ -1067,7 +1067,7 @@ Usage: #example
 * identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
 * identifier.value = "1234"
 * status = #in-progress
-* businessStatus.text = "Order Proof Of Cooncep 1 Example"
+* description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T12:48:59+02:00"
@@ -1090,7 +1090,7 @@ Usage: #example
 * identifier.value = "1234"
 /* * partOf.reference = "http://example.com/fhir/Task/task-order1" see github issue https://github.com/ahdis/matchbox/issues/18 */
 * status = #ready
-* businessStatus.text = "Order Proof Of Cooncep 1 Example"
+* description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T13:56:59+02:00"
@@ -1170,6 +1170,7 @@ Usage: #example
 * authoredOn = "2021-10-27T13:56:59+02:00"
 * lastModified = "2021-10-27T14:56:59+02:00"
 * requester = Reference(Device/FillerIntermediary) "Filler Intermediary"
+* owner = Reference(Organization/FillerOrganization) "Filler Orgnanization"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
 * output[0].type.text = "DocumentReference"
@@ -1206,7 +1207,7 @@ Usage: #example
 * identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
 * identifier.value = "1234"
 * status = #completed
-* businessStatus.text = "Order Proof Of Cooncep 1 Example"
+* description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T12:48:59+02:00"
