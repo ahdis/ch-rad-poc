@@ -96,7 +96,7 @@ Content-Type: application/json-patch+json
 [ 
     {  "op": "replace", "path": "/status", "value": "in-progress" },
     {  "op": "replace", "path": "/lastModified", "value": "2021-10-27T15:46:34+02:00" },
-    {  "op": "add", "path": "/owner", "value": { "reference": "Device/PlacerIntermediary",  "display": "PlacerIntermediary" } }
+    {  "op": "add", "path": "/owner", "value": { "identifier":   { "system" : "urn:oid:2.999.1.2.3", "value" : "tbd" },  "display": "Intermediary" } }
 ]
 
 ###      Create Task referencing Bundle and ImagingStudy (need to adjsut the id in ask-task-order1-inprogress)

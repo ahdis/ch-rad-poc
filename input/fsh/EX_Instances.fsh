@@ -1006,6 +1006,16 @@ Usage: #example
 * status = #available
 * subject = Reference(dev)
 
+Instance: imagingstudy-order2
+InstanceOf: ImagingStudy
+Usage: #example
+* contained = dev
+* identifier[0].use = #official
+* identifier[=].system = "urn:dicom:uid"
+* identifier[=].value = "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430048"
+* status = #available
+* subject = Reference(dev)
+
 
 //------------- Organizations -------------
 Instance: PlacerOrganization
@@ -1042,19 +1052,25 @@ InstanceOf: Task
 Description: "Task is created for
 - Radiology Order in bundle-order1
 - Previous ImagingStudy should be also sent with"
-Usage: #example
-* identifier.use = #official
+* identifier.type = $v2-0203#PLAC
 * identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
 * identifier.value = "1234"
 * status = #ready
-* description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
+* description = "Order Test001"
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T12:48:59+02:00"
 * lastModified = "2021-10-27T12:48:59+02:00"
-* requester = Reference(Organization/PlacerOrganization) "Placer Organization"
+* requester.identifier.system = "urn:oid:2.51.1.3"
+* requester.identifier.value = "7601003001136"
+* requester.display = "SUVA (Test)"
+* restriction.recipient.identifier.system = "urn:oid:2.51.1.3"
+* restriction.recipient.identifier.value = "7601001401310"
+* restriction.recipient.display = "ahdis (Test)"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
+* input[+].type.text = "ImagingStudy"
+* input[=].valueReference = Reference(imagingstudy-order2)
 
 
 Instance: task-order1-inprogress
@@ -1063,7 +1079,7 @@ Description: "Task is updated to be
 - status in-progress
 - added owner"
 Usage: #example
-* identifier.use = #official
+* identifier.type = $v2-0203#PLAC
 * identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
 * identifier.value = "1234"
 * status = #in-progress
@@ -1072,11 +1088,19 @@ Usage: #example
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T12:48:59+02:00"
 * lastModified = "2021-10-27T13:55:29+02:00"
-* requester = Reference(Organization/PlacerOrganization) "Placer Organization"
-* owner = Reference(Device/PlacerIntermediary) "Placer Intermediary"
+* requester.identifier.system = "urn:oid:2.51.1.3"
+* requester.identifier.value = "7601003001136"
+* requester.display = "SUVA (Test)"
+* restriction.recipient.identifier.system = "urn:oid:2.51.1.3"
+* restriction.recipient.identifier.value = "7601001401310"
+* restriction.recipient.display = "ahdis (Test)"
+* owner.identifier.system = "urn:oid:2.999.1.2.3"
+* owner.identifier.value = "tbd"
+* owner.display = "MedicalConnector (Test)"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
-
+* input[+].type.text = "ImagingStudy"
+* input[=].valueReference = Reference(imagingstudy-order2)
 
 Instance: task-order1-filler
 InstanceOf: Task
@@ -1085,19 +1109,25 @@ Description: "Task on filler is created to be
 - requester is Filler Intermediay
 - referencing created Bundle "
 Usage: #example
-* identifier.use = #official
+* identifier.type = $v2-0203#PLAC
 * identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
 * identifier.value = "1234"
-/* * partOf.reference = "http://example.com/fhir/Task/task-order1" see github issue https://github.com/ahdis/matchbox/issues/18 */
 * status = #ready
 * description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T13:56:59+02:00"
 * lastModified = "2021-10-27T13:56:59+02:00"
-* requester = Reference(Device/FillerIntermediary) "Filler Intermediary"
+* requester.identifier.system = "urn:oid:2.999.1.2.3"
+* requester.identifier.value = "tbd"
+* requester.display = "MedicalConnector (Test)"
+* restriction.recipient.identifier.system = "urn:oid:2.51.1.3"
+* restriction.recipient.identifier.value = "7601001401310"
+* restriction.recipient.display = "ahdis (Test)"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
+* input[+].type.text = "ImagingStudy"
+* input[=].valueReference = Reference(imagingstudy-order2)
 
 
 Instance: order1-filler-transaction
@@ -1111,6 +1141,10 @@ Usage: #example
 * entry[=].request.url = "Bundle"
 * entry[=].request.method = #POST
 * entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/imagingstudy-order1"
+* entry[=].resource = imagingstudy-order1
+* entry[=].request.url = "ImagingStudy"
+* entry[=].request.method = #POST
+* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/imagingstudy-order2"
 * entry[=].resource = imagingstudy-order1
 * entry[=].request.url = "ImagingStudy"
 * entry[=].request.method = #POST
@@ -1160,19 +1194,30 @@ Description: "Task on filler is completed and
 - status completed
 - output set to DocumentRefence and ImagingStudy "
 Usage: #example
-* identifier.use = #official
-* identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
-* identifier.value = "1234"
-/* * partOf.reference = "http://example.com/fhir/Task/task-order1" see github issue https://github.com/ahdis/matchbox/issues/18 */
+* identifier[0].type = $v2-0203#PLAC
+* identifier[0].system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
+* identifier[0].value = "1234"
+* identifier[1].type = $v2-0203#FILL
+* identifier[1].system = "urn:oid:2.16.756.5.30.1.145.1.2.4"
+* identifier[1].value = "6789"
 * status = #completed
 * focus = Reference(Bundle/bundle-order1)
 * intent = #order
 * authoredOn = "2021-10-27T13:56:59+02:00"
 * lastModified = "2021-10-27T14:56:59+02:00"
-* requester = Reference(Device/FillerIntermediary) "Filler Intermediary"
-* owner = Reference(Organization/FillerOrganization) "Filler Orgnanization"
+* requester.identifier.system = "urn:oid:2.999.1.2.3"
+* requester.identifier.value = "tbd"
+* requester.display = "MedicalConnector (Test)"
+* restriction.recipient.identifier.system = "urn:oid:2.51.1.3"
+* restriction.recipient.identifier.value = "7601001401310"
+* restriction.recipient.display = "ahdis (Test)"
+* owner.identifier.system = "urn:oid:2.51.1.3"
+* owner.identifier.value = "7601001401310"
+* owner.display = "ahdis (Test)"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
+* input[+].type.text = "ImagingStudy"
+* input[=].valueReference = Reference(imagingstudy-order2)
 * output[0].type.text = "DocumentReference"
 * output[=].valueReference = Reference(pdfreport-filler)
 * output[1].type.text = "ImagingStudy"
@@ -1203,9 +1248,12 @@ Description: "Task on filler is completed and
 - status completed
 - output set to DocumentRefence and ImagingStudy "
 Usage: #example
-* identifier.use = #official
-* identifier.system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
-* identifier.value = "1234"
+* identifier[0].type = $v2-0203#PLAC
+* identifier[0].system = "urn:oid:2.16.756.5.30.1.145.1.2.3"
+* identifier[0].value = "1234"
+* identifier[1].type = $v2-0203#FILL
+* identifier[1].system = "urn:oid:2.16.756.5.30.1.145.1.2.4"
+* identifier[1].value = "6789"
 * status = #completed
 * description = "Order Proof Of Cooncep 1 Example"
 * intent = #order
@@ -1216,6 +1264,8 @@ Usage: #example
 * owner = Reference(Device/PlacerIntermediary) "Placer Intermediary"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
+* input[+].type.text = "ImagingStudy"
+* input[=].valueReference = Reference(imagingstudy-order2)
 * output[0].type.text = "DocumentReference"
 * output[=].valueReference = Reference(pdfreport-filler)
 * output[1].type.text = "ImagingStudy"
@@ -1223,7 +1273,7 @@ Usage: #example
 
 Instance: order1-update-placer-complete-transaction
 InstanceOf: Bundle
-Description: "Transaction Bundle to updated  the task completed on the Placer FHIR Server and link the results"
+Description: "Transaction Bundle to updated the task completed on the Placer FHIR Server and link the results"
 Usage: #example
 * type = #transaction
 * timestamp = "2021-10-27T14:59:59+02:00"

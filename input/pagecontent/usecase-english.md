@@ -17,7 +17,7 @@ Placer Pacs: Studies for patients
 
 Intermediary: Transfers Orders, PDF Reports and Imaging Studies between Placer and Filler in both directions 
 
-Filler:  Connects to FHIR server for receiving orders, connect toback and sysgem, resul
+Filler:  Connects to FHIR server for receiving orders, connect toback and system, result
 Filler Pacs: Studies for patients
 
 <div>
@@ -44,9 +44,8 @@ The Placer Application allows a User to select the order type (questionnaire). H
 
 The RAD-Order document will be stored on the FHIR Server as a [FHIR Bundle](http://hl7.org/fhir/bundle.html).
 
-The Placer App creates a Task Resource on the FHIR Server with the input referenced to the FHIR Bundle. If the order contains references to
+The Placer App creates a Task Resource on the FHIR Server with the focus referencing the FHIR Bundle. If the order contains references to
 the previous Imaging Results, they are also added as additional input elements. 
-*(TODO: This is not yet done on the Placer app and needs to be created).*
 
 [Example order represented as a task](Task-task-order1.json.html) with referencing the bundle and imaging source. Status of the task is set to ready.
 
@@ -55,16 +54,25 @@ the previous Imaging Results, they are also added as additional input elements.
 The Intermediary polls for new tasks (as an alternative it could also create a subscription) with the following query:
 
 ```
-GET {{host}}/Task?status=ready&requester=Organization/PlacerOrganization HTTP/1.1
+GET {{host}}/Task?status=ready&_lastUpdated=gt2021-10-27T14:56:59+02:00  HTTP/1.1
 ```
 
-The Intermediary retrieves [the task information](Task-task-order1.json.html)) and updates the status to in-progress, gets the corresponding [Bundle](Bundle-bundle-order1.json.html) and [ImagingStudy](ImagingStudy-imagingstudy-order1.json.html) (could be done also in one query with _include, would need ot be adapted to _include also work with the input ImagingStudy)
+The Intermediary retrieves [the task information](Task-task-order1.json.html)) and updates the status to in-progress if it can handle the task.
+(The intermediates needs to check if he can handle the task between the the sender and receiver. The receiver is added in as a restriction.recipient identifier (gln) is provided, the sender is available in requester identifier).
+
+The Intermediary gets the corresponding [Bundle](Bundle-bundle-order1.json.html) and [ImagingStudy](ImagingStudy-imagingstudy-order1.json.html).
+
+Note: The Intermediary needs to check that he is not the requestor of the task.
+
+ImagingStudy resources could be contained, however it has been proposed that ImagingStudy should be handled in Input and Output same as DocumentReference and be managed on the FHIR server.
+
 
 ```
-GET {{host}}/Task?status=ready&requester=Organization/PlacerOrganization HTTP/1.1
+GET {{host}}/Task?status=ready&_lastUpdated=gt2021-10-27T14:56:59+02:00 HTTP/1.1
 GET {{host}}/Task/task-order1 HTTP/1.1
 GET {{host}}/Bundle/bundle-order1 HTTP/1.1
 GET {{host}}/ImagingStudy/imagingstudy-order1 HTTP/1.1
+GET {{host}}/ImagingStudy/imagingstudy-order2 HTTP/1.1
 ```
 
 Update the status, lastModified and owner via PATCH operation or [update the complete Task](Task-task-order1-inprogress.html) via PUT
@@ -76,7 +84,7 @@ Content-Type: application/json-patch+json
 [ 
     {  "op": "replace", "path": "/status", "value": "in-progress" },
     {  "op": "replace", "path": "/lastModified", "value": "2021-10-27T15:46:34+02:00" },
-    {  "op": "add", "path": "/owner", "value": { "reference": "Device/PlacerIntermediary",  "display": "PlacerIntermediary" } }
+    {  "op": "add", "path": "/owner", "value": { "identifier":   { "system" : "urn:oid:2.999.1.2.3", "value" : "tbd" },  "display": "Intermediary" } }
 ]
 ```
 
@@ -88,7 +96,7 @@ These steps are done directly with the intermediary and the PACS and are not des
 
 ### Create Radiology Order [06] 
 
-The intermediary creates a [new Task](Task-task-order1-filler.json.html) on the Filler FHIR Server together with the [Radiology Order]((Bundle-bundle-order1.json.html) and [ImagingStudies](ImagingStudy-imagingstudy-order1.json.html) and a backlink (partOf) to the originalTask. The requester of the Task is the Filler Intermediary.
+The intermediary creates a [new Task](Task-task-order1-filler.json.html) on the Filler FHIR Server together with the [Radiology Order]((Bundle-bundle-order1.json.html) and [ImagingStudies](ImagingStudy-imagingstudy-order1.json.html). The requester of the Task is the Filler Intermediary. The task provides also the original identifier as an identifier.
 
 1. Step by Step: POST Bundle, Imaging Study and Task on Filler FHIR Server and do the linking yourself in Task resource to the respective Bundle and ImagingStudy yourself
 
@@ -101,7 +109,6 @@ Content-Type: application/json+fhir
 < output/Bundle-order1-filler-transaction.json
 ```
 
-Note: Open issue on matchbox that external references are not yet [allowed](https://github.com/ahdis/matchbox/issues/18)
 Note: Does the ImagingStudy resource needs to be modified since it is moved into the other pacs and should be referenced to that?
 ### Get new Radiology Order [07] 
 
@@ -110,11 +117,14 @@ Equivalent to step [02]
 1. Poll for new tasks
 
 ```
-GET {{host}}/Task?status=ready&requester=Device/FillerIntermediary HTTP/1.1
+GET {{host}}/Task?status=ready_lastUpdated=gt2021-10-27T14:56:59+02:00 HTTP/1.1
 ```
+
+The filler application has to check that he is able to fullfil the task (check gln restriction.recipient identifier and maybe also if he can handle the bundle which is is on the focus for the task).
 
 2. retrieve the [task information](Task-task-order1-filler.json.html) and update the status to in-progress, set lastModified and owner get the corresponding Bundle 
 
+The filler application updates the task also with the filler identifier.
 
 ### Fulfill Radiology Order [08]
 
@@ -140,7 +150,7 @@ As in step [06] this can be done in different calls (Create DocumentReference an
 The Intermediary polls for completed tasks (as an alternative it could also create a subscription) with the following query (referencing only completed since last checked):
 
 ```
-GET {{host}}/Task?status=completed&requester=Device/FillerIntermediary&modified=gt2021-10-27T14:56:59+02:00 HTTP/1.1
+GET {{host}}/Task?status=completed&requester=Device/FillerIntermediary&_lastUpdate=gt2021-10-27T14:56:59+02:00 HTTP/1.1
 ```
 
 retrieve the task information and downloads the referenced output resources (DocumentReference, ImagingStudy)
