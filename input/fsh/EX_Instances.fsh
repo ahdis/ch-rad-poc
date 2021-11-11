@@ -992,59 +992,23 @@ Usage: #inline
 * class = $v3-ActCode#AMB "Ambulant"
 * subject = Reference(urn:uuid:07e1d224-90c3-4246-8cc0-dcf30a4c9b43)
 
-Instance: dev
-InstanceOf: Device
-Usage: #inline
-
 Instance: imagingstudy-order1
 InstanceOf: ImagingStudy
 Usage: #example
-* contained = dev
 * identifier[0].use = #official
 * identifier[=].system = "urn:dicom:uid"
 * identifier[=].value = "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430047"
 * status = #available
-* subject = Reference(dev)
+* subject.display = "Patient"
 
 Instance: imagingstudy-order2
 InstanceOf: ImagingStudy
 Usage: #example
-* contained = dev
 * identifier[0].use = #official
 * identifier[=].system = "urn:dicom:uid"
 * identifier[=].value = "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430048"
 * status = #available
-* subject = Reference(dev)
-
-
-//------------- Organizations -------------
-Instance: PlacerOrganization
-InstanceOf: ChCoreOrganization
-Title: "PlacerOrganization"
-Description: "Example for the Placer Organization"
-* name = "PlacerOrganization"
-
-Instance: FillerOrganization
-InstanceOf: ChCoreOrganization
-Title: "FillerOrganization"
-Description: "Example for the Filler Organization"
-* name = "FillerOrganization"
-
-//------------- Devices -------------
-Instance: PlacerIntermediary
-InstanceOf: Device
-Title: "PlacerIntermediary"
-Description: "Example for the Placer Intermediary"
-* deviceName.name = "PlacerIntermediary"
-* deviceName.type = $device-name-type#user-friendly-name
-
-
-Instance: FillerIntermediary
-InstanceOf: Device
-Title: "FillerIntermediary"
-Description: "Example for the Filler Intermediary"
-* deviceName.name = "FillerIntermediary"
-* deviceName.type = $device-name-type#user-friendly-name
+* subject.display = "Patient"
 
 //------------- Organizations -------------
 Instance: task-order1
@@ -1167,18 +1131,18 @@ Usage: #example
 Instance: imagingstudy-filler
 InstanceOf: ImagingStudy
 Usage: #example
-* contained[0] = dev
-* contained[+] = FillerOrganization
 * identifier[0].use = #official
 * identifier[=].system = "urn:dicom:uid"
 * identifier[=].value = "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"
 * identifier[+].use = #usual
 * identifier[=].type = $v2-0203#ACSN
 * identifier[=].value = "W12342398"
-* identifier[=].assigner = Reference(FillerOrganization)
+* identifier[=].assigner.identifier.system = "urn:oid:2.51.1.3"
+* identifier[=].assigner.identifier.value = "7601001401310"
+* identifier[=].assigner.display = "ahdis (Test)"
 * status = #available
 * modality = $DCM#DX
-* subject = Reference(dev)
+* subject.display = "Patient"
 * started = "2017-01-01T11:01:20+03:00"
 * numberOfSeries = 1
 * numberOfInstances = 2
@@ -1260,8 +1224,15 @@ Usage: #example
 * focus = Reference(Bundle/bundle-order1)
 * authoredOn = "2021-10-27T12:48:59+02:00"
 * lastModified = "2021-10-27T13:55:29+02:00"
-* requester = Reference(Organization/PlacerOrganization) "Placer Organization"
-* owner = Reference(Device/PlacerIntermediary) "Placer Intermediary"
+* requester.identifier.system = "urn:oid:2.999.1.2.3"
+* requester.identifier.value = "tbd"
+* requester.display = "MedicalConnector (Test)"
+* restriction.recipient.identifier.system = "urn:oid:2.51.1.3"
+* restriction.recipient.identifier.value = "7601001401310"
+* restriction.recipient.display = "ahdis (Test)"
+* owner.identifier.system = "urn:oid:2.51.1.3"
+* owner.identifier.value = "7601001401310"
+* owner.display = "ahdis (Test)"
 * input[0].type.text = "ImagingStudy"
 * input[=].valueReference = Reference(imagingstudy-order1)
 * input[+].type.text = "ImagingStudy"

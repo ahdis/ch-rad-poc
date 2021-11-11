@@ -19,31 +19,6 @@ GET {{host}}/QuestionnaireResponse?_sort=-_lastUpdated
 Content-Type: application/json+fhir
 
 
-###
-GET {{host}}/QuestionnaireResponse/1376
-Content-Type: application/json+fhir
-1376
-
-### Setup PlacerOrganizaiton
-PUT {{host}}/Organization/PlacerOrganization HTTP/1.1
-Content-Type: application/json+fhir
-
-< output/Organization-PlacerOrganization.json
-
-
-### Setup PlacerFiller
-PUT {{host}}/Device/PlacerIntermediary HTTP/1.1
-Content-Type: application/json+fhir
-
-< output/Device-PlacerIntermediary.json
-
-### Setup PlacerFiller
-PUT {{host}}/Device/FillerIntermediary HTTP/1.1
-Content-Type: application/json+fhir
-
-< output/Device-FillerIntermediary.json
-
-
 ### [01] Create a rad-order
 
 ###      Setup Bundle as Radiology Order
@@ -67,7 +42,7 @@ Content-Type: application/json+fhir
 ### [02] Get Rad-order
 
 ###      Poll for ready tasks
-GET {{host}}/Task?status=ready&requester=Organization/PlacerOrganization HTTP/1.1
+GET {{host}}/Task?status=ready HTTP/1.1
 Accept: application/json+fhir
 
 ###      Get task that 
@@ -127,10 +102,8 @@ Accept: application/json+fhir
 
 ### [07] Get new Radiology Order
 
-GET {{host}}/Task?status=ready&requester=Device/FillerIntermediary
+GET {{host}}/Task?status=ready
 Accept: application/json+fhir
-
-
 
 
 ### [09] Update Radiology Order
@@ -142,7 +115,7 @@ Content-Type: application/json+fhir
 
 
 ### Get PDF Report with references to imaging studies [10]
-GET {{host}}/Task?status=completed&requester=Device/FillerIntermediary&modified=gt2021-10-27T14:56:58+02:00
+GET {{host}}/Task?status=completed&&modified=gt2021-10-27T14:56:58+02:00
 Accept: application/json+fhir
 
 ### Set Radiology Order to completed [14] 
@@ -153,7 +126,7 @@ Content-Type: application/json+fhir
 < output/Bundle-order1-update-placer-complete-transaction.json
 
 ###      Poll for ready tasks
-GET {{host}}/Task?status=completed&requester=Organization/PlacerOrganization HTTP/1.1
+GET {{host}}/Task?status=completed HTTP/1.1
 Accept: application/json+fhir
 
 

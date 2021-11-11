@@ -150,10 +150,10 @@ As in step [06] this can be done in different calls (Create DocumentReference an
 The Intermediary polls for completed tasks (as an alternative it could also create a subscription) with the following query (referencing only completed since last checked):
 
 ```
-GET {{host}}/Task?status=completed&requester=Device/FillerIntermediary&_lastUpdate=gt2021-10-27T14:56:59+02:00 HTTP/1.1
+GET {{host}}/Task?status=completed&_lastUpdate=gt2021-10-27T14:56:59+02:00 HTTP/1.1
 ```
 
-retrieve the task information and downloads the referenced output resources (DocumentReference, ImagingStudy)
+the intermediary needs to check if the was the retrieve the task information and downloads the referenced output resources (DocumentReference, ImagingStudy)
 
 ### Get referenced Imaging Studies [11]
 ### Transfer PDF Report and Imaging Studies [12]
