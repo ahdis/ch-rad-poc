@@ -36,6 +36,8 @@ pages:
     title: Anwendungsfälle
   usecase-french.md:
     title: Cas d'application
+  matchbox.md:
+    title: Matchbox
   questionnaire.html:
     title: Questionnaire
   profiles.html:
