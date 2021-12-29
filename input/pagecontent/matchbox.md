@@ -12,7 +12,8 @@ open a folder on the machine where you want matchbox deployed (e.g. docker)
 - copy [application.yml](docker/application.yml) to this folder
 - copy [docker-compose.yml](docker/docker-compose.yml) to this folder
 
-then you can startup the docker instances
+then you can startup the docker instances.
+Note: For linux based systems it is [docker-compose](https://docs.docker.com/compose/install/))
 
 ```
 docker compose up
@@ -47,8 +48,8 @@ the FHIR server base address is
    1. Remove the 'Auftraggsnummer des Auftragsgebers'
    2. Add 'Identifier Domain for Auftragsnummer des Auftragsgebers', should be and oid (or canonical url) of your organisation e.g: urn:oid:2.16.756.5.30.1.145.1.2.3
    3. Add 'Lokale Patienten-ID Domain' oid, e.g: urn:oid:2.16.756.5.30.1.145.1.9.9
-   4. Add the GLN for the sender org 'Verantwortliche Organisation Sender' e.g: 7601003001136
-   5. Add the GLN for the receiver org 'Empfangende Oganisation e.g. GLN 7601001401310
+   4. Add the GLN for the sender org 'Verantwortliche Organisation Sender' e.g: 7601003000078
+   5. Add the GLN for the receiver org 'Empfangende Oganisation e.g. GLN 2000000985633
    6. Fill up any default values you would like to have filled out for each order
    7. Click Save as Default
 
