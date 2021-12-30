@@ -74,7 +74,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[+].extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression"
 * item[=].item[=].extension.valueExpression.description = "automatic generation"
 * item[=].item[=].extension.valueExpression.language = #text/fhirpath
-* item[=].item[=].extension.valueExpression.expression = "now().toString().substring(19).replace('T','').replace('-','').replace('-','').replace(':','').replace(':','')+'3'"
+* item[=].item[=].extension.valueExpression.expression = "now().toString().substring(0,19).replace('T','').replace('-','').replace('-','').replace(':','').replace(':','')+'3'"
 * item[=].item[=].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value"
 * item[=].item[=].text = "Auftragsnummer des Auftraggebers"
