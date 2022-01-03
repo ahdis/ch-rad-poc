@@ -44,18 +44,21 @@ the FHIR server base address is
 ### configuring the radiology order for the PoC
 
 1. You need to define a 'Default' Questionnaire Response, open the Questionnaire Radiology Order PoC and click on **Save as Default**
-2. Go to [Settings](http://localhost:4200/#/settings) in the app and click **Questionnaire Radiology Order PoC***, you should see now also hidden fields
-   1. Remove the 'Auftraggsnummer des Auftragsgebers'
-   2. Add 'Identifier Domain for Auftragsnummer des Auftragsgebers', should be and oid (or canonical url) of your organisation e.g: urn:oid:2.16.756.5.30.1.145.1.2.3
-   3. Add 'Lokale Patienten-ID Domain' oid, e.g: urn:oid:2.16.756.5.30.1.145.1.9.9
-   4. Add the GLN for the sender org 'Verantwortliche Organisation Sender' e.g: 7601003000078
-   5. Add the GLN for the receiver org 'Empfangende Oganisation e.g. GLN 2000000985633
-   6. Fill up any default values you would like to have filled out for each order
-   7. Click Save as Default
+2. Go to [Settings](http://localhost:4200/#/settings) in the app and click **Questionnaire Radiology Order PoC***, you should see now also hidden and readonly fields
+   1. Set 'Titel' to: 'Anmeldung Radiologie'
+   2. Set 'Typ' to 'Imaging Order (record artifact)'
+   3. Set 'Kategorie' to 'Order (record artifact)' 
+   4. Remove the 'Auftragsnummer des Auftragsgebers'
+   5. Add 'Identifier Domain for Auftragsnummer des Auftragsgebers', should be and oid (or canonical url) of your organisation e.g: urn:oid:2.16.756.5.30.1.145.1.2.3
+   6. Add 'Lokale Patienten-ID Domain' oid, e.g: urn:oid:2.16.756.5.30.1.145.1.9.9
+   7. Add the GLN for the sender org 'Verantwortliche Organisation Sender' e.g: 7601003000078
+   8. Add the GLN for the receiver org 'Empfangende Oganisation e.g. GLN 2000000985633
+   9. Fill up any default values you would like to have filled out for each order
+   10. Click Save as Default
 
 ### creating the order
 1. select **Questionnaire Radiology Order PoC***
 2. fill in the fiels to test
-3. click Save and Send, switch to the orders veiw
+3. click Save and Send, switch to the orders view
 
 

@@ -25,6 +25,8 @@ services:
     image: postgres:latest
     container_name: matchbox-db
     restart: always
+    ports:
+      - '5432:5432'
     environment:
       POSTGRES_DB: 'matchbox'
       POSTGRES_USER: 'matchbox'
