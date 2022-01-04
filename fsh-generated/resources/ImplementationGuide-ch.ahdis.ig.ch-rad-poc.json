@@ -1,0 +1,290 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "ch.ahdis.ig.ch-rad-poc",
+  "url": "http://ahdis.ch/ig/ch-rad-poc/ImplementationGuide/ch.ahdis.ig.ch-rad-poc",
+  "version": "0.1.0",
+  "name": "CH_RAD_POC",
+  "title": "CH RAD-ProofOfConcept (R4)",
+  "status": "active",
+  "date": "2021-10-25",
+  "publisher": "ahdis",
+  "contact": [
+    {
+      "name": "Oliver Egger",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.ahdis.ch"
+        }
+      ]
+    }
+  ],
+  "description": "Implementation guide CH RAD Proof Of Concept (R4)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "CH",
+          "system": "urn:iso:std:iso:3166"
+        }
+      ]
+    }
+  ],
+  "copyright": "CC-BY-SA-4.0",
+  "packageId": "ch.ahdis.ig.ch-rad-poc",
+  "license": "CC-BY-SA-4.0",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "ch.fhir.ig.ch-orf",
+      "version": "0.10.0",
+      "uri": "http://fhir.ch/ig/ch-orf/ImplementationGuide/ch.fhir.ig.ch-orf",
+      "id": "ch_fhir_ig_ch_orf"
+    },
+    {
+      "packageId": "ch.fhir.ig.ch-core",
+      "version": "2.0.0",
+      "uri": "http://fhir.ch/ig/ch-core/ImplementationGuide/ch.fhir.ig.ch-core",
+      "id": "ch_fhir_ig_ch_core"
+    },
+    {
+      "packageId": "ch.fhir.ig.ch-rad-order",
+      "version": "0.1.0",
+      "uri": "http://fhir.ch/ig/ch-rad-order/ImplementationGuide/ch.fhir.ig.ch-rad-order",
+      "id": "ch_fhir_ig_ch_rad_order"
+    },
+    {
+      "packageId": "ch.fhir.ig.ch-epr-mhealth",
+      "version": "0.2.0",
+      "uri": "http://fhir.ch/ig/ch-epr-mhealth/ImplementationGuide/ch.fhir.ig.ch-epr-mhealth",
+      "id": "ch_fhir_ig_ch_epr_mhealth"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/ch-report-composition"
+        },
+        "name": "CH Report Composition",
+        "description": "Profile on Report for CH RAD-POC",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Questionnaire/QuestionnaireRadiologyOrderPoC"
+        },
+        "name": "Questionnaire Radiology Order PoC",
+        "description": "Questionnaire Radiology Order for Proof Of Concpt",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "QuestionnaireResponse/SenderPrefilledQuestionnaireResponse"
+        },
+        "name": "SenderPrefilledQuestionnaireResponse",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/bundle-order1"
+        },
+        "name": "bundle-order1",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ImagingStudy/imagingstudy-filler"
+        },
+        "name": "imagingstudy-filler",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ImagingStudy/imagingstudy-order1"
+        },
+        "name": "imagingstudy-order1",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ImagingStudy/imagingstudy-order2"
+        },
+        "name": "imagingstudy-order2",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/order1-filler-transaction"
+        },
+        "name": "order1-filler-transaction",
+        "description": "Transaction Bundle to create all necessary instances on the Filler FHIR Server",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/order1-update-filler-transaction"
+        },
+        "name": "order1-update-filler-transaction",
+        "description": "Transaction Bundle to updated  the task completed on the Filler FHIR Server and link the results",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/order1-update-placer-complete-transaction"
+        },
+        "name": "order1-update-placer-complete-transaction",
+        "description": "Transaction Bundle to updated the task completed on the Placer FHIR Server and link the results",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/pdfreport-filler"
+        },
+        "name": "pdfreport-filler",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Task/task-order1"
+        },
+        "name": "task-order1",
+        "description": "Task is created for\n- Radiology Order in bundle-order1\n- Previous ImagingStudy should be also sent with",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Task/task-order1-filler"
+        },
+        "name": "task-order1-filler",
+        "description": "Task on filler is created to be \n- status ready\n- requester is Filler Intermediay\n- referencing created Bundle ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Task/task-order1-filler-completed"
+        },
+        "name": "task-order1-filler-completed",
+        "description": "Task on filler is completed and \n- status completed\n- output set to DocumentRefence and ImagingStudy ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Task/task-order1-inprogress"
+        },
+        "name": "task-order1-inprogress",
+        "description": "Task is updated to be \n- status in-progress\n- added owner",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Task/task-order1-placer-completed"
+        },
+        "name": "task-order1-placer-completed",
+        "description": "Task on filler is completed and \n- status completed\n- output set to DocumentRefence and ImagingStudy ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/cm-administrative-gender-v3"
+        },
+        "exampleBoolean": false,
+        "name": "v3 map for AdministrativeGender"
+      },
+      {
+        "reference": {
+          "reference": "StructureMap/OrfQrToBundle"
+        },
+        "description": "\r\nORF QuestionnaireResponse to Bundle\r\n2021-01-11 Oliver Egger, copyright ahdis ag, Apache License\r\nQRF Questionnaire: http://build.fhir.org/ig/hl7ch/ch-orf/Questionnaire-order-referral-form.html\r\nQRF QuestionnaireResponse: http://build.fhir.org/ig/hl7ch/ch-orf/QuestionnaireResponse-order-referral-form.xml.html\r\nBundle: http://build.fhir.org/ig/hl7ch/ch-orf/StructureDefinition-ch-orf-document.html",
+        "exampleBoolean": false,
+        "name": "OrfQrToBundle"
+      },
+      {
+        "reference": {
+          "reference": "StructureMap/RadOrderQrToBundle"
+        },
+        "description": "Radiologoy QuestionnaireResponse to Bundle",
+        "exampleBoolean": false,
+        "name": "RadOrderQrToBundle"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ch-rad-order-caveat-device"
+        },
+        "exampleBoolean": false,
+        "name": "Caveat Device"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ch-rad-order-requested-service"
+        },
+        "exampleBoolean": false,
+        "name": "Requested Service"
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "html"
+        },
+        {
+          "nameUrl": "usecase-english.html",
+          "title": "Use Cases",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "usecase-german.html",
+          "title": "Anwendungsfälle",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "usecase-french.html",
+          "title": "Cas d'application",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "matchbox.html",
+          "title": "Matchbox",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "questionnaire.html",
+          "title": "Questionnaire",
+          "generation": "html"
+        },
+        {
+          "nameUrl": "profiles.html",
+          "title": "Profiles",
+          "generation": "html"
+        },
+        {
+          "nameUrl": "extensions.html",
+          "title": "Extensions",
+          "generation": "html"
+        },
+        {
+          "nameUrl": "terminology.html",
+          "title": "Terminology",
+          "generation": "html"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2021+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "STU 1"
+      }
+    ]
+  }
+}

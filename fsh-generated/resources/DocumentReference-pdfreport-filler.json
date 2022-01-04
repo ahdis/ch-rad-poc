@@ -1,0 +1,16 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "pdfreport-filler",
+  "status": "current",
+  "date": "2021-10-27T17:56:59+02:00",
+  "description": "PDF Report",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "language": "de-CH",
+        "data": "JVBERi0xLjAKMSAwIG9iajw8L1BhZ2VzIDIgMCBSPj5lbmRvYmogMiAwIG9iajw8L0tpZHNbMyAw\nIFJdL0NvdW50IDE+PmVuZG9iaiAzIDAgb2JqPDwvTWVkaWFCb3hbMCAwIDMgM10+PmVuZG9iagp0\ncmFpbGVyPDwvUm9vdCAxIDAgUj4+Cg=="
+      }
+    }
+  ]
+}

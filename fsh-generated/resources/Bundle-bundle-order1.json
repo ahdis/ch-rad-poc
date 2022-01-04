@@ -1,0 +1,1933 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-order1",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:b027579c-9f76-4596-a164-1d6bcf0b8556"
+  },
+  "type": "document",
+  "timestamp": "2021-10-27T11:24:40+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:7ad0bcd8-99f7-498f-b7d1-17c44322e1b5",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "Inline-Instance-for-bundle-order1-1",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "code": "2161000195103",
+              "system": "urn:oid:2.16.756.5.30.1.127.3.4",
+              "display": "Imaging order (record artifact)"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "721963009",
+                "system": "http://snomed.info/sct",
+                "display": "Order (record artifact)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:07e1d224-90c3-4246-8cc0-dcf30a4c9b43"
+        },
+        "date": "2021-10-27T11:24:40+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:f4a3b79c-8803-4b99-8a6a-f058f0f162ce"
+          }
+        ],
+        "title": "Anmeldung Radiologie",
+        "section": [
+          {
+            "title": "Order-Referral",
+            "code": {
+              "coding": [
+                {
+                  "code": "93037-0",
+                  "system": "http://loinc.org",
+                  "display": "Portable medical order form"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:b83b8e37-573a-432c-93a4-79dfaf3aebde"
+              },
+              {
+                "reference": "urn:uuid:999cf67d-dc4e-47f4-97b7-26aab5f32aa5"
+              },
+              {
+                "reference": "urn:uuid:36387c80-9af4-435b-af1e-ed42fc5825e4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:07e1d224-90c3-4246-8cc0-dcf30a4c9b43",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Inline-Instance-for-bundle-order1-2",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.756.5.30.1.145.1.9.9",
+            "value": "1234"
+          }
+        ],
+        "name": [
+          {
+            "family": "Muster",
+            "given": [
+              "Franz"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1971-12-04",
+        "address": [
+          {
+            "line": [
+              "Leidensweg"
+            ],
+            "city": "Zürich",
+            "postalCode": "8003"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b83b8e37-573a-432c-93a4-79dfaf3aebde",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "Inline-Instance-for-bundle-order1-3",
+        "questionnaire": "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder",
+        "status": "in-progress",
+        "item": [
+          {
+            "linkId": "order",
+            "text": "Auftrag",
+            "item": [
+              {
+                "linkId": "order.title",
+                "text": "Titel",
+                "answer": [
+                  {
+                    "valueString": "Anmeldung Radiologie"
+                  }
+                ]
+              },
+              {
+                "linkId": "order.type",
+                "text": "Typ",
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "code": "2161000195103",
+                      "system": "urn:oid:2.16.756.5.30.1.127.3.4",
+                      "display": "Imaging order (record artifact)"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "order.category",
+                "text": "Kategorie",
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "code": "721963009",
+                      "system": "http://snomed.info/sct",
+                      "display": "Order (record artifact)"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "order.placerOrderIdentifier",
+                "text": "Auftragsnummer des Auftraggebers",
+                "answer": [
+                  {
+                    "valueString": "1234"
+                  }
+                ]
+              },
+              {
+                "linkId": "order.placerOrderIdentifierDomain",
+                "text": "Identifier Domain der Auftragsnummer des Auftraggebers",
+                "answer": [
+                  {
+                    "valueString": "urn:oid:2.16.756.5.30.1.145.1.2.3"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "patient",
+            "text": "Patient",
+            "item": [
+              {
+                "linkId": "patient.familyName",
+                "text": "Name",
+                "answer": [
+                  {
+                    "valueString": "Muster"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.givenName",
+                "text": "Vorname",
+                "answer": [
+                  {
+                    "valueString": "Franz"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.localPid",
+                "text": "Lokale Patienten-ID",
+                "answer": [
+                  {
+                    "valueString": "1234"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.localPidDomain",
+                "text": "Lokale Patienten-ID Domain",
+                "answer": [
+                  {
+                    "valueString": "urn:oid:2.16.756.5.30.1.145.1.9.9"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.birthDate",
+                "text": "Geburtsdatum",
+                "answer": [
+                  {
+                    "valueDate": "1971-12-04"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.gender",
+                "text": "Geschlecht",
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "code": "male",
+                      "system": "http://hl7.org/fhir/administrative-gender",
+                      "display": "Männlich"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.streetAddressLine",
+                "text": "Strasse, Hausnummer, Postfach etc.",
+                "answer": [
+                  {
+                    "valueString": "Leidensweg"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.postalCode",
+                "text": "PLZ",
+                "answer": [
+                  {
+                    "valueString": "8003"
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.city",
+                "text": "Ort",
+                "answer": [
+                  {
+                    "valueString": "Zürich"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "requestedEncounter",
+            "text": "Patientenaufnahme",
+            "item": [
+              {
+                "linkId": "requestedEncounter.class",
+                "text": "Voraussichtlich: Ambulant / Stationär / Notfall",
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "code": "AMB",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Ambulant"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "imagingService",
+            "text": "Bildgebendes Verfahren",
+            "item": [
+              {
+                "linkId": "imagingService.type",
+                "text": "Art",
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "code": "RID10321",
+                      "system": "http://www.radlex.org",
+                      "display": "computed tomography"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "caveat",
+            "text": "Caveats",
+            "item": [
+              {
+                "linkId": "caveat.bloodCoagulation",
+                "text": "Beinträchtigte Blutgerinnung",
+                "answer": [
+                  {
+                    "valueBoolean": false
+                  }
+                ]
+              },
+              {
+                "linkId": "caveat.renalInsufficiency",
+                "text": "Niereninsuffizienz",
+                "answer": [
+                  {
+                    "valueBoolean": false
+                  }
+                ]
+              },
+              {
+                "linkId": "caveat.claustrophobia",
+                "text": "Klaustrophobie",
+                "answer": [
+                  {
+                    "valueBoolean": false
+                  }
+                ]
+              },
+              {
+                "linkId": "caveat.bodyPiercing",
+                "text": "Körperpiercing",
+                "answer": [
+                  {
+                    "valueBoolean": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:999cf67d-dc4e-47f4-97b7-26aab5f32aa5",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "Inline-Instance-for-bundle-order1-4",
+        "extension": [
+          {
+            "url": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-requestedencounterdetails",
+            "valueReference": {
+              "reference": "urn:uuid:f4a3b79c-8803-4b99-8a6a-f058f0f162cd"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.756.5.30.1.145.1.2.3",
+            "value": "1234"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "code": "RID10321",
+              "system": "http://www.radlex.org",
+              "display": "computed tomography"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:07e1d224-90c3-4246-8cc0-dcf30a4c9b43"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:36387c80-9af4-435b-af1e-ed42fc5825e4",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "Inline-Instance-for-bundle-order1-5",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2021-10-27T11:20:03.037+00:00",
+          "source": "#VmnrcxyTPhXuHSQn",
+          "profile": [
+            "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire",
+            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire",
+            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap",
+            "valueCanonical": "http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle"
+          },
+          {
+            "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-sourceStructureMap",
+            "valueCanonical": "http://fhir.ch/ig/ch-orf/StructureMap/OrfPrepopBundleToQr"
+          },
+          {
+            "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext",
+            "extension": [
+              {
+                "url": "name",
+                "valueId": "Bundle"
+              },
+              {
+                "url": "type",
+                "valueCode": "Bundle"
+              },
+              {
+                "url": "description",
+                "valueString": "The Bundle that is to be used to pre-populate the form"
+              }
+            ]
+          }
+        ],
+        "url": "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder",
+        "version": "0.1.0",
+        "name": "QuestionnaireRadiologyOrder",
+        "title": "Questionnaire Radiology Order",
+        "derivedFrom": [
+          "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
+        ],
+        "status": "active",
+        "subjectType": [
+          "Patient"
+        ],
+        "date": "2021-02-24",
+        "publisher": "HL7 Switzerland",
+        "contact": [
+          {
+            "name": "Juerg P. Bleuer",
+            "telecom": [
+              {
+                "system": "url",
+                "value": "https://www.hl7.ch"
+              }
+            ]
+          }
+        ],
+        "jurisdiction": [
+          {
+            "coding": [
+              {
+                "code": "CH",
+                "system": "urn:iso:std:iso:3166"
+              }
+            ]
+          }
+        ],
+        "copyright": "CC-BY-SA-4.0",
+        "item": [
+          {
+            "linkId": "order",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-document#Bundle",
+            "text": "Auftrag",
+            "type": "group",
+            "required": true,
+            "item": [
+              {
+                "linkId": "order.title",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.title",
+                "text": "Titel",
+                "type": "string",
+                "required": true,
+                "readOnly": true
+              },
+              {
+                "linkId": "order.type",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.type",
+                "text": "Typ",
+                "type": "choice",
+                "required": true,
+                "readOnly": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.typeCode"
+              },
+              {
+                "linkId": "order.category",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.category",
+                "text": "Kategorie",
+                "type": "choice",
+                "required": true,
+                "readOnly": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.classCode"
+              },
+              {
+                "linkId": "order.placerOrderIdentifier",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value",
+                "text": "Auftragsnummer des Auftraggebers",
+                "type": "string",
+                "required": true
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden",
+                    "valueBoolean": true
+                  }
+                ],
+                "linkId": "order.placerOrderIdentifierDomain",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.system",
+                "text": "Identifier Domain der Auftragsnummer des Auftraggebers",
+                "type": "string",
+                "required": true
+              },
+              {
+                "linkId": "order.fillerOrderIdentifier",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:fillerOrderIdentifier.value",
+                "text": "Auftragsnummer des Auftragsempfängers",
+                "type": "string"
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden",
+                    "valueBoolean": true
+                  }
+                ],
+                "linkId": "order.fillerOrderIdentifierDomain",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:fillerOrderIdentifier.system",
+                "text": "Identifier Domain der Auftragsnummer des Auftragsempfängers",
+                "type": "string"
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden",
+                    "valueBoolean": true
+                  }
+                ],
+                "linkId": "order.precedentDocumentIdentifier",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:precedentDocument",
+                "text": "Identifier des Vorgängerdokuments",
+                "type": "string"
+              },
+              {
+                "linkId": "order.notificationContactDocument",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:urgentNoficationContactForThisDocument",
+                "text": "Dringender Benachrichtigungskontakt für dieses Dokument",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "order.notificationContactDocument.practitioner",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.practitioner",
+                    "text": "Zu benachrichtigende Person",
+                    "type": "group",
+                    "item": [
+                      {
+                        "linkId": "order.notificationContactDocument.practitioner.title",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.prefix",
+                        "text": "Titel",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocument.practitioner.familyName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.family",
+                        "text": "Name",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocument.practitioner.givenName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.given",
+                        "text": "Vorname",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocument.practitioner.phone",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "Telefon",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocument.practitioner.email",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "E-Mail",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "order.notificationContactDocumentResponse",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:urgentNoficationContactForTheResponseToThisDocument",
+                "text": "Dringender Benachrichtigungskontakt für die Antwort auf dieses Dokument",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "order.notificationContactDocumentResponse.practitioner",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.practitioner",
+                    "text": "Zu benachrichtigende Person",
+                    "type": "group",
+                    "item": [
+                      {
+                        "linkId": "order.notificationContactDocumentResponse.practitioner.title",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.prefix",
+                        "text": "Titel",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocumentResponse.practitioner.familyName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.family",
+                        "text": "Name",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocumentResponse.practitioner.givenName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.given",
+                        "text": "Vorname",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocumentResponse.practitioner.phone",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "Telefon",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "order.notificationContactDocumentResponse.practitioner.email",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "E-Mail",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "order.priority",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.priority",
+                "text": "Auftragspriorität",
+                "type": "choice",
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "routine",
+                      "system": "http://hl7.org/fhir/request-priority",
+                      "display": "Die Anfrage hat normale Priorität."
+                    },
+                    "initialSelected": true
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "urgent",
+                      "system": "http://hl7.org/fhir/request-priority",
+                      "display": "Die Anfrage sollte dringend bearbeitet werden - höhere Priorität als normal."
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "asap",
+                      "system": "http://hl7.org/fhir/request-priority",
+                      "display": "Die Anfrage sollte so schnell wie möglich bearbeitet werden - höhere Priorität als dringend."
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "stat",
+                      "system": "http://hl7.org/fhir/request-priority",
+                      "display": "Die Anfrage sollte sofort bearbeitet werden - höchstmögliche Priorität. Z.B. bei einem Notfall."
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "patient",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.subject",
+            "text": "Patient",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "patient.familyName",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name.family",
+                "text": "Name",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.maidenName",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name.family",
+                "text": "Ledigname",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.givenName",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name.given",
+                "text": "Vorname",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.localPid",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.identifier:LocalPid.value",
+                "text": "Lokale Patienten-ID",
+                "type": "string"
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden",
+                    "valueBoolean": true
+                  }
+                ],
+                "linkId": "patient.localPidDomain",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.identifier:LocalPid.system",
+                "text": "Lokale Patienten-ID Domain",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.birthDate",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.birthDate",
+                "text": "Geburtsdatum",
+                "type": "date"
+              },
+              {
+                "linkId": "patient.gender",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.gender",
+                "text": "Geschlecht",
+                "type": "choice",
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "male",
+                      "system": "http://hl7.org/fhir/administrative-gender",
+                      "display": "Männlich"
+                    },
+                    "initialSelected": true
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "female",
+                      "system": "http://hl7.org/fhir/administrative-gender",
+                      "display": "Weiblich"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "other",
+                      "system": "http://hl7.org/fhir/administrative-gender",
+                      "display": "Anderes"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "patient.phone",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.telecom.value",
+                "text": "Telefon",
+                "type": "string",
+                "repeats": true
+              },
+              {
+                "linkId": "patient.email",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.telecom.value",
+                "text": "E-Mail",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.streetAddressLine",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.address.line",
+                "text": "Strasse, Hausnummer, Postfach etc.",
+                "type": "string",
+                "repeats": true
+              },
+              {
+                "linkId": "patient.postalCode",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.address.postalCode",
+                "text": "PLZ",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.city",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.address.city",
+                "text": "Ort",
+                "type": "string"
+              },
+              {
+                "linkId": "patient.country",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.address.country",
+                "text": "Land",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "linkId": "requestedEncounter",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.extension:requestedEncounterDetails",
+            "text": "Patientenaufnahme",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "requestedEncounter.class",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-encounter#Encounter.class",
+                "text": "Voraussichtlich: Ambulant / Stationär / Notfall",
+                "type": "choice",
+                "required": true,
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "AMB",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Ambulant"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "IMP",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Stationär"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "EMER",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Notfall"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "requestedEncounter.desiredAccommodation",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-encounter#Encounter.extension:desiredAccommodation",
+                "text": "Zimmerkategorie",
+                "type": "choice",
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "P",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Einerzimmer"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "SP",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Zweierzimmer"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "W",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                      "display": "Mehrbettzimmer"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "coverage",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance",
+            "text": "Kostenträger",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "coverage.beneficiary",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.beneficiary",
+                "text": "Begünstigter (Patient)",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.beneficiary.ahvn13",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.identifier:AHVN13",
+                    "text": "AHV-Nr. des Patienten",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.kvg",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Krankenkasse (nach KVG)",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.kvg.name",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor",
+                    "text": "Name der Versicherung",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "coverage.kvg.insuranceCardNumber",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier",
+                    "text": "Kennnummer der Versichertenkarte",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.uvg",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Unfallversicherung (nach UVG)",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.uvg.name",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor",
+                    "text": "Name der Versicherung",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "coverage.uvg.claimNumber",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier",
+                    "text": "Schadennummer",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.vvg",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Zusatzversicherung (nach VVG)",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.vvg.name",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor",
+                    "text": "Name der Versicherung",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "coverage.vvg.insuranceCardNumber",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier",
+                    "text": "Kennnummer der Versichertenkarte",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.iv",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Invalidenversicherung (IV)",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.iv.verfuegungsnummer",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier",
+                    "text": "IV-Verfügungsnummer",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.mv",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Militärversicherung (MV)",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.mv.versichertennummer",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier",
+                    "text": "MV-Versichertennummer",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.self",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Selbstzahler",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.self.familyName",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor",
+                    "text": "Name",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "coverage.self.givenName",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor",
+                    "text": "Vorname",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "coverage.other",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.type",
+                "text": "Anderer Kostenträger",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "coverage.other.name",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor",
+                    "text": "Name des Kostenträgers",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "coverage.other.id",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier",
+                    "text": "Beliebige ID",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "coverage.other.id.note",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier.type.text",
+                    "text": "Bemerkung zur ID",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "sender",
+            "text": "Absender",
+            "type": "group",
+            "required": true,
+            "item": [
+              {
+                "linkId": "sender.author",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.author",
+                "text": "Verantwortlicher",
+                "type": "group",
+                "required": true,
+                "item": [
+                  {
+                    "linkId": "sender.author.practitioner",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.practitioner",
+                    "text": "Verantwortliche Person",
+                    "type": "group",
+                    "required": true,
+                    "item": [
+                      {
+                        "linkId": "sender.author.practitioner.title",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.prefix",
+                        "text": "Titel",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.author.practitioner.familyName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.family",
+                        "text": "Name",
+                        "type": "string",
+                        "required": true
+                      },
+                      {
+                        "linkId": "sender.author.practitioner.givenName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.given",
+                        "text": "Vorname",
+                        "type": "string",
+                        "required": true
+                      },
+                      {
+                        "linkId": "sender.author.practitioner.gln",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:GLN.value",
+                        "text": "GLN",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.author.practitioner.phone",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "Telefon",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.author.practitioner.email",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "E-Mail",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "sender.author.organization",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.organization",
+                    "text": "Verantwortliche Organisation",
+                    "type": "group",
+                    "required": true,
+                    "item": [
+                      {
+                        "linkId": "sender.author.organization.name",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name",
+                        "text": "Name der Organisation",
+                        "type": "string",
+                        "required": true
+                      },
+                      {
+                        "linkId": "sender.author.organization.streetAddressLine",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.line",
+                        "text": "Strasse, Hausnummer, Postfach etc.",
+                        "type": "string",
+                        "repeats": true
+                      },
+                      {
+                        "linkId": "sender.author.organization.postalCode",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.postalCode",
+                        "text": "PLZ",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.author.organization.city",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.city",
+                        "text": "Ort",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.author.organization.country",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.country",
+                        "text": "Land",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "sender.dataenterer",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:dataEnterer",
+                "text": "Erfasser",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "sender.dataenterer.practitioner",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.practitioner",
+                    "text": "Erfassende Person",
+                    "type": "group",
+                    "item": [
+                      {
+                        "linkId": "sender.dataenterer.practitioner.familyName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.family",
+                        "text": "Name",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.dataenterer.practitioner.givenName",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.given",
+                        "text": "Vorname",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.dataenterer.practitioner.phone",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "Telefon",
+                        "type": "string"
+                      },
+                      {
+                        "linkId": "sender.dataenterer.practitioner.email",
+                        "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                        "text": "E-Mail",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "receiver",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:receiver",
+            "text": "Empfänger",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "receiver.practitioner",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.practitioner",
+                "text": "Empfangende Person",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "receiver.practitioner.title",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.prefix",
+                    "text": "Titel",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.practitioner.familyName",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.family",
+                    "text": "Name",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.practitioner.givenName",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.given",
+                    "text": "Vorname",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.practitioner.gln",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:GLN.value",
+                    "text": "GLN",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.practitioner.phone",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                    "text": "Telefon",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.practitioner.email",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value",
+                    "text": "E-Mail",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "receiver.organization",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.organization",
+                "text": "Empfangende Organisation",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "receiver.organization.name",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name",
+                    "text": "Name der Organisation",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.organization.streetAddressLine",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.line",
+                    "text": "Strasse, Hausnummer, Postfach etc.",
+                    "type": "string",
+                    "repeats": true
+                  },
+                  {
+                    "linkId": "receiver.organization.postalCode",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.postalCode",
+                    "text": "PLZ",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.organization.city",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.city",
+                    "text": "Ort",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiver.organization.country",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.country",
+                    "text": "Land",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "receiverCopies",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:copyReceiver",
+            "text": "Kopieempfänger",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "receiverCopy",
+                "text": "Kopieempfangende Organisation oder Person",
+                "type": "group",
+                "repeats": true,
+                "item": [
+                  {
+                    "linkId": "receiverCopy.organization.name",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name",
+                    "text": "Name der Organisation",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.title",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.prefix",
+                    "text": "Titel",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.familyName",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.family",
+                    "text": "Name",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.givenName",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.given",
+                    "text": "Vorname",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.phone",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/ContactPoint#ContactPoint.value",
+                    "text": "Telefon",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.email",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/ContactPoint#ContactPoint.value",
+                    "text": "E-Mail",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.streetAddressLine",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.line",
+                    "text": "Strasse, Hausnummer, Postfach etc.",
+                    "type": "string",
+                    "repeats": true
+                  },
+                  {
+                    "linkId": "receiverCopy.postalCode",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.postalCode",
+                    "text": "PLZ",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.city",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.city",
+                    "text": "Ort",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "receiverCopy.country",
+                    "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.country",
+                    "text": "Land",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "appointment",
+            "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.extension:locationAndTime",
+            "text": "Ort und Zeit der Durchführung der angeforderten Leistung",
+            "type": "group",
+            "repeats": true,
+            "item": [
+              {
+                "linkId": "appointment.location",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.participant.actor",
+                "text": "Ort der Durchführung",
+                "type": "group",
+                "required": true,
+                "item": [
+                  {
+                    "linkId": "appointment.location.name",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.name",
+                    "text": "Name",
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "linkId": "appointment.location.phone",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.telecom.value",
+                    "text": "Telefon",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "appointment.location.email",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.telecom.value",
+                    "text": "E-Mail",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "appointment.location.streetAddressLine",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.address.line",
+                    "text": "Strasse, Hausnummer, Postfach etc.",
+                    "type": "string",
+                    "repeats": true
+                  },
+                  {
+                    "linkId": "appointment.location.postalCode",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.address.postalCode",
+                    "text": "PLZ",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "appointment.location.city",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.address.city",
+                    "text": "Ort",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "appointment.location.country",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.address.country",
+                    "text": "Land",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "linkId": "appointment.requestedPeriod",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.requestedPeriod",
+                "text": "Datum und Zeit, wann der Termin bevorzugt geplant werden soll",
+                "type": "group",
+                "item": [
+                  {
+                    "linkId": "appointment.requestedPeriod.start",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.requestedPeriod.start",
+                    "text": "Von",
+                    "type": "dateTime"
+                  },
+                  {
+                    "linkId": "appointment.requestedPeriod.end",
+                    "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.requestedPeriod.end",
+                    "text": "Bis",
+                    "type": "dateTime"
+                  }
+                ]
+              },
+              {
+                "linkId": "appointment.status",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.status",
+                "text": "Status",
+                "type": "choice",
+                "required": true,
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "proposed",
+                      "system": "http://hl7.org/fhir/appointmentstatus",
+                      "display": "Wunsch des Patienten (vorgeschlagen)"
+                    },
+                    "initialSelected": true
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "pending",
+                      "system": "http://hl7.org/fhir/appointmentstatus",
+                      "display": "Vom Patienten bestätigt, aber vom Leistungserbringer noch nicht (ausstehend)"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "booked",
+                      "system": "http://hl7.org/fhir/appointmentstatus",
+                      "display": "Vom Patienten und Leistungserbringer bestätigt (gebucht)"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "appointment.patientInstruction",
+                "definition": "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.patientInstruction",
+                "text": "Patienteninformation für diesen Termin",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "linkId": "requestedService",
+            "text": "Angeforderte Leistung",
+            "type": "group",
+            "required": true,
+            "item": [
+              {
+                "linkId": "requestedService.service",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.category.coding",
+                "text": "Leistung",
+                "type": "choice",
+                "required": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-requested-service"
+              }
+            ]
+          },
+          {
+            "linkId": "reason",
+            "text": "Klinische Fragestellung",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "reason.question",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.reasonCode.text",
+                "text": "Fragestellung",
+                "type": "string",
+                "repeats": true
+              }
+            ]
+          },
+          {
+            "linkId": "imagingService",
+            "text": "Bildgebendes Verfahren",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "imagingService.type",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.code.coding:RdlxModType",
+                "text": "Art",
+                "type": "choice",
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-modality-type"
+              }
+            ]
+          },
+          {
+            "linkId": "orderDetail",
+            "text": "Weitere Angaben zur Bildgebung",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "orderDetail.imagingRegion",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:imagingRegion",
+                "text": "Region",
+                "type": "choice",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-imaging-region"
+              },
+              {
+                "linkId": "orderDetail.imagingFocus",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.bodySite",
+                "text": "Fokus",
+                "type": "choice",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-imaging-focus"
+              },
+              {
+                "linkId": "orderDetail.laterality",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:laterality",
+                "text": "Seitenangabe",
+                "type": "choice",
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-laterality"
+              },
+              {
+                "linkId": "orderDetail.viewType",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:viewType",
+                "text": "Ansicht",
+                "type": "choice",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-view-type"
+              },
+              {
+                "linkId": "orderDetail.maneuverType",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:maneuverType",
+                "text": "Manöver",
+                "type": "choice",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-maneuver-type"
+              },
+              {
+                "linkId": "orderDetail.guidanceForAction",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:guidanceForAction",
+                "text": "Handlungsanleitung",
+                "type": "choice",
+                "enableWhen": [
+                  {
+                    "question": "requestedService.service",
+                    "operator": "=",
+                    "answerCoding": {
+                      "code": "RadIntervention",
+                      "system": "http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service"
+                    }
+                  },
+                  {
+                    "question": "requestedService.service",
+                    "operator": "=",
+                    "answerCoding": {
+                      "code": "ImagingRequestWithIntervention",
+                      "system": "http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service"
+                    }
+                  }
+                ],
+                "enableBehavior": "any",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
+              }
+            ]
+          },
+          {
+            "linkId": "desiredRadiologist",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.performer",
+            "text": "Gewünschter Radiologe für die Befundung / für die Intervention",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "desiredRadiologist.familyName",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.family",
+                "text": "Name",
+                "type": "string"
+              },
+              {
+                "linkId": "desiredRadiologist.givenName",
+                "definition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.name.given",
+                "text": "Vorname",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "linkId": "diagnosisList",
+            "text": "Diagnosen und Befunde",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "diagnosisList.primaryDiagnosis",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.reasonReference",
+                "text": "Hauptdiagnose",
+                "type": "string",
+                "repeats": true
+              },
+              {
+                "linkId": "diagnosisList.secondaryDiagnosis",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:diagnosis",
+                "text": "Nebendiagnose",
+                "type": "string",
+                "repeats": true
+              },
+              {
+                "linkId": "diagnosisList.bodyHeight",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:bodyHeight",
+                "text": "Grösse (cm)",
+                "type": "quantity",
+                "repeats": false
+              },
+              {
+                "linkId": "diagnosisList.bodyWeight",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:bodyWeight",
+                "text": "Gewicht (kg)",
+                "type": "quantity",
+                "repeats": false
+              }
+            ]
+          },
+          {
+            "linkId": "caveat",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats",
+            "text": "Caveats",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "caveat.bloodCoagulation",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Beinträchtigte Blutgerinnung",
+                "type": "boolean",
+                "item": [
+                  {
+                    "linkId": "caveat.bloodCoagulation.INR",
+                    "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail",
+                    "text": "INR",
+                    "type": "group",
+                    "enableWhen": [
+                      {
+                        "question": "caveat.bloodCoagulation",
+                        "operator": "=",
+                        "answerBoolean": true
+                      }
+                    ],
+                    "item": [
+                      {
+                        "linkId": "caveat.bloodCoagulation.INR.quantity",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity",
+                        "text": "Wert (INR)",
+                        "type": "quantity"
+                      },
+                      {
+                        "linkId": "caveat.bloodCoagulation.INR.dateTime",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.effectiveDateTime",
+                        "text": "Zeitpunkt der Bestimmung",
+                        "type": "dateTime"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "caveat.bloodCoagulation.platelets",
+                    "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail",
+                    "text": "Thrombozyten",
+                    "type": "group",
+                    "enableWhen": [
+                      {
+                        "question": "caveat.bloodCoagulation",
+                        "operator": "=",
+                        "answerBoolean": true
+                      }
+                    ],
+                    "item": [
+                      {
+                        "linkId": "caveat.bloodCoagulation.platelets.quantity",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity",
+                        "text": "Wert (10^3/µl)",
+                        "type": "quantity"
+                      },
+                      {
+                        "linkId": "caveat.bloodCoagulation.platelets.dateTime",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.effectiveDateTime",
+                        "text": "Zeitpunkt der Bestimmung",
+                        "type": "dateTime"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "caveat.renalInsufficiency",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Niereninsuffizienz",
+                "type": "boolean",
+                "item": [
+                  {
+                    "linkId": "caveat.renalInsufficiency.creatinineClearance",
+                    "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail",
+                    "text": "Creatinin-Clearance",
+                    "type": "group",
+                    "enableWhen": [
+                      {
+                        "question": "caveat.renalInsufficiency",
+                        "operator": "=",
+                        "answerBoolean": true
+                      }
+                    ],
+                    "item": [
+                      {
+                        "linkId": "caveat.renalInsufficiency.creatinineClearance.quantity",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity",
+                        "text": "Wert (ml/min)",
+                        "type": "quantity"
+                      },
+                      {
+                        "linkId": "caveat.renalInsufficiency.creatinineClearance.dateTime",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.effectiveDateTime",
+                        "text": "Zeitpunkt der Bestimmung",
+                        "type": "dateTime"
+                      }
+                    ]
+                  },
+                  {
+                    "linkId": "caveat.renalInsufficiency.creatinine",
+                    "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail",
+                    "text": "Creatinin",
+                    "type": "group",
+                    "enableWhen": [
+                      {
+                        "question": "caveat.renalInsufficiency",
+                        "operator": "=",
+                        "answerBoolean": true
+                      }
+                    ],
+                    "item": [
+                      {
+                        "linkId": "caveat.renalInsufficiency.creatinine.quantity",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.valueQuantity",
+                        "text": "Wert (µmol/l)",
+                        "type": "quantity"
+                      },
+                      {
+                        "linkId": "caveat.renalInsufficiency.creatinine.dateTime",
+                        "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.effectiveDateTime",
+                        "text": "Zeitpunkt der Bestimmung",
+                        "type": "dateTime"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "linkId": "caveat.claustrophobia",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Klaustrophobie",
+                "type": "boolean"
+              },
+              {
+                "linkId": "caveat.bodyPiercing",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Körperpiercing",
+                "type": "boolean"
+              },
+              {
+                "linkId": "caveat.device",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)",
+                "type": "choice",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
+              },
+              {
+                "linkId": "caveat.hyperthyroidism",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Hyperthyreose",
+                "type": "boolean"
+              },
+              {
+                "linkId": "caveat.diabetes",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Diabetes mellitus",
+                "type": "boolean"
+              },
+              {
+                "linkId": "caveat.gravida",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Schwangerschaft",
+                "type": "boolean"
+              },
+              {
+                "linkId": "caveat.contrastMediaAllergy",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Kontrastmittelallergie",
+                "type": "boolean"
+              },
+              {
+                "linkId": "caveat.drugPrescription",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code",
+                "text": "Relevante Medikamente, z.B. Metformin",
+                "type": "choice",
+                "repeats": true,
+                "answerValueSet": "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance"
+              }
+            ]
+          },
+          {
+            "linkId": "previousResults",
+            "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:previousImagingResults",
+            "text": "Vorherige Untersuchungsresultate",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "previousResults.attachment",
+                "text": "Anhang",
+                "type": "attachment",
+                "repeats": true
+              }
+            ]
+          },
+          {
+            "linkId": "note",
+            "text": "Bemerkungen",
+            "type": "group",
+            "repeats": true,
+            "item": [
+              {
+                "linkId": "note.text",
+                "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.note.text",
+                "text": "Kommentar",
+                "type": "string",
+                "required": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f4a3b79c-8803-4b99-8a6a-f058f0f162cd",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Inline-Instance-for-bundle-order1-6",
+        "status": "planned",
+        "class": {
+          "code": "AMB",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "display": "Ambulant"
+        },
+        "subject": {
+          "reference": "urn:uuid:07e1d224-90c3-4246-8cc0-dcf30a4c9b43"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f4a3b79c-8803-4b99-8a6a-f058f0f162ce",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "Inline-Instance-for-bundle-order1-7",
+        "meta": {
+          "profile": [
+            "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
+          ]
+        },
+        "practitioner": {
+          "reference": "urn:uuid:f4a3b79c-8803-4b99-8a6a-f058f0f162cf"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f4a3b79c-8803-4b99-8a6a-f058f0f162cf",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "Inline-Instance-for-bundle-order1-8",
+        "meta": {
+          "profile": [
+            "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.51.1.3",
+            "value": "7601000034321"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Rderplacer",
+            "given": [
+              "Ottilie"
+            ],
+            "prefix": [
+              "Dr. med."
+            ],
+            "_prefix": [
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+                    "valueCode": "AC"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+41 44 333 22 11"
+          },
+          {
+            "system": "email",
+            "value": "o.rderplacer@happydoctors.ch"
+          }
+        ]
+      }
+    }
+  ]
+}

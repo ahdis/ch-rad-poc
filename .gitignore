@@ -3,7 +3,6 @@ input-cache/**
 output/**
 temp/**
 template/**
-fsh-generated/**
 
 # jar files
 *.jar

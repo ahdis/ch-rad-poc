@@ -1,0 +1,113 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ch-report-composition",
+  "url": "http://ahdis.ch/ig/ch-rad-poc/StructureDefinition/ch-report-composition",
+  "version": "0.1.0",
+  "name": "ChReportComposition",
+  "title": "CH Report Composition",
+  "status": "active",
+  "description": "Profile on Report for CH RAD-POC",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "fhirdocumentreference",
+      "uri": "http://hl7.org/fhir/documentreference",
+      "name": "FHIR DocumentReference"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-composition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition",
+        "path": "Composition",
+        "short": "CH ORF Composition"
+      },
+      {
+        "id": "Composition.text",
+        "path": "Composition.text",
+        "short": "Narrative text of the composition",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "Precise type of clinical document",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.typeCode"
+        }
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "short": "High-level kind of a clinical document at a macro level",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.classCode"
+        }
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": "Patient as the principle target of a particular form content",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "The person/organization responsible for the form content",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "Meaningful title",
+        "mustSupport": true
+      }
+    ]
+  }
+}
