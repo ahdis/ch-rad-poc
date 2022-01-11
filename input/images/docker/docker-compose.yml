@@ -1,7 +1,7 @@
 version: '3'
 services:
   matchbox-formfiller:
-    image: eu.gcr.io/fhir-ch/matchbox-formfiller:v160
+    image: eu.gcr.io/fhir-ch/matchbox-formfiller:v171
     restart: on-failure
     ports:
       - '4300:80'
@@ -12,7 +12,7 @@ services:
       MAG: 'https://test.ahdis.ch/mag-pmp'
       MATCHBOX: 'http://matchbox:8080/matchbox'
   matchbox:
-    image: eu.gcr.io/fhir-ch/matchbox:v160
+    image: eu.gcr.io/fhir-ch/matchbox:v170
     container_name: matchbox
     restart: on-failure
     ports:
@@ -25,6 +25,7 @@ services:
     image: postgres:latest
     container_name: matchbox-db
     restart: always
+    command: ["postgres", "-c", "log_statement=all"]
     ports:
       - '5432:5432'
     environment:

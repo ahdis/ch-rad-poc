@@ -27,7 +27,7 @@ this will run a postgres db container, matchbox and the form-filler application.
 
 it will take a while until everything is started up. afterwards the application should be available at:
 
-[http://localhost:4300/#/]()
+[http://localhost:4300/matchbox-formfiller/#/](http://localhost:4300/matchbox-formfiller/#/)
 
 ![application](matchbox-form-filler.png)
 
@@ -38,7 +38,7 @@ you should have on the bottom the **Questionnaire Radiology Order PoC** which is
 on the top right you have the menu.
 
 the FHIR server base address is 
-[http://localhost:8080/matchbox/fhir/r4](http://localhost:8080/matchbox/fhir) and is also exposed (not only to the form-filler app)
+[http://localhost:4300/matchbox/fhir/metata](http://localhost:4300/matchbox/fhir) and is also exposed (not only to the form-filler app on port 8080)
 
 
 ### configuring the radiology order for the PoC
