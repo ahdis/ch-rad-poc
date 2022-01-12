@@ -1,7 +1,7 @@
 version: '3'
 services:
   matchbox-formfiller:
-    image: eu.gcr.io/fhir-ch/matchbox-formfiller:v171
+    image: eu.gcr.io/fhir-ch/matchbox-formfiller:v172
     restart: on-failure
     ports:
       - '4300:80'
