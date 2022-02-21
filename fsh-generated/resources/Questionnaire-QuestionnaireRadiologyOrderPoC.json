@@ -1419,23 +1419,10 @@
       "item": [
         {
           "linkId": "previousResults.attachment",
-          "text": "Anhang",
-          "type": "group",
-          "repeats": true,
-          "item": [
-            {
-              "linkId": "previousResults.attachtment.title",
-              "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title",
-              "text": "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")",
-              "type": "string"
-            },
-            {
-              "linkId": "previousResults.attachment.data",
-              "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data",
-              "text": "Daten",
-              "type": "string"
-            }
-          ]
+          "definition": "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data",
+          "text": "Daten",
+          "type": "attachment",
+          "repeats": true
         },
         {
           "linkId": "previousResults.imagingStudy",

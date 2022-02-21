@@ -1,18 +1,7 @@
 version: '3'
 services:
-  matchbox-formfiller:
-    image: eu.gcr.io/fhir-ch/matchbox-formfiller:v172
-    restart: on-failure
-    ports:
-      - '4300:80'
-    links:
-      - matchbox
-    environment:
-      DOMAIN: 'localhost'
-      MAG: 'https://test.ahdis.ch/mag-pmp'
-      MATCHBOX: 'http://matchbox:8080/matchbox'
   matchbox:
-    image: eu.gcr.io/fhir-ch/matchbox:v170
+    image: eu.gcr.io/fhir-ch/matchbox:v181
     container_name: matchbox
     restart: on-failure
     ports:

@@ -15,3 +15,5 @@ www/*
 !www/publish.ini
 
 input/images/docker/data/**
+
+examples

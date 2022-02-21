@@ -36,7 +36,7 @@ Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
 
 
 // CH EPR Term Code Systems
-Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4
+Alias:   SNOMEDCTSwissExtensionExtension =       urn:oid:2.16.756.5.30.1.127.3.4
 
 
 // CH Core SD

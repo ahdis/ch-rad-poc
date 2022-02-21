@@ -17,34 +17,28 @@ Note: For linux based systems it is [docker-compose](https://docs.docker.com/com
 
 ```
 docker compose up
-[+] Running 3/3
+[+] Running 2/2
  ⠿ Container matchbox-db                   Started                                                                                                                          0.5s
- ⠿ Container matchbox                      Started                                                                                                                          0.9s
- ⠿ Container docker_matchbox-formfiller_1  Started      
-```
+ ⠿ Container matchbox                      Started                                                                                                                 ``
 
-this will run a postgres db container, matchbox and the form-filler application. 
+this will run a postgres db container and matchbox. 
 
 it will take a while until everything is started up. afterwards the application should be available at:
 
-[http://localhost:4300/matchbox-formfiller/#/](http://localhost:4300/matchbox-formfiller/#/)
-
-![application](matchbox-form-filler.png)
-
-<div style="clear: left"/>
+[http://localhost:8080/matchbox/#/](http://localhost:8080/matchbox/#/)
 
 
 you should have on the bottom the **Questionnaire Radiology Order PoC** which is used in this project.
 on the top right you have the menu.
 
 the FHIR server base address is 
-[http://localhost:4300/matchbox/fhir/metata](http://localhost:4300/matchbox/fhir) and is also exposed (not only to the form-filler app on port 8080)
+[http://localhost:8080/matchbox/fhir](http://localhost:8080/matchbox/fhir)
 
 
 ### configuring the radiology order for the PoC
 
 1. You need to define a 'Default' Questionnaire Response, open the Questionnaire Radiology Order PoC and click on **Save as Default**
-2. Go to [Settings](http://localhost:4200/#/settings) in the app and click **Questionnaire Radiology Order PoC***, you should see now also hidden and readonly fields
+2. Go to [Settings](http://localhost:0080/#/settings) in the app and click **Questionnaire Radiology Order PoC***, you should see now also hidden and readonly fields
    1. Set 'Titel' to: 'Anmeldung Radiologie'
    2. Set 'Typ' to 'Imaging Order (record artifact)'
    3. Set 'Kategorie' to 'Order (record artifact)' 

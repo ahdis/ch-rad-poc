@@ -140,7 +140,22 @@ Content-Type: application/xml+fhir
 
 
 ###
-POST {{host}}/Questionnaire HTTP/1.1
+POST {{host}} HTTP/1.1
 Content-Type: application/json+fhir
 
-< ./test-initial-value.json
+
+< ./examples/report_request_too_large.json
+
+
+###
+POST {{host}}
+Content-Type: application/xml+fhir
+
+< ./examples/report_request.xml
+
+
+###
+POST {{host}} HTTP/1.1
+Content-Type: application/xml+fhir
+
+< ./examples/task.xml
