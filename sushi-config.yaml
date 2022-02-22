@@ -23,10 +23,10 @@ contact:
     system: url
     value: https://www.ahdis.ch
 dependencies:
-  ch.fhir.ig.ch-orf: 0.10.0
+  ch.fhir.ig.ch-orf: 1.0.0
   ch.fhir.ig.ch-core: 2.0.0
-  ch.fhir.ig.ch-rad-order: 0.1.0
-  ch.fhir.ig.ch-epr-mhealth: 0.2.0
+  ch.fhir.ig.ch-rad-order: 1.0.0
+  ch.fhir.ig.ch-epr-mhealth: 1.0.0
 pages:
   index.html:
     title: Home

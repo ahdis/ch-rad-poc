@@ -39,7 +39,7 @@
   "dependsOn": [
     {
       "packageId": "ch.fhir.ig.ch-orf",
-      "version": "0.10.0",
+      "version": "1.0.0",
       "uri": "http://fhir.ch/ig/ch-orf/ImplementationGuide/ch.fhir.ig.ch-orf",
       "id": "ch_fhir_ig_ch_orf"
     },
@@ -51,13 +51,13 @@
     },
     {
       "packageId": "ch.fhir.ig.ch-rad-order",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "uri": "http://fhir.ch/ig/ch-rad-order/ImplementationGuide/ch.fhir.ig.ch-rad-order",
       "id": "ch_fhir_ig_ch_rad_order"
     },
     {
       "packageId": "ch.fhir.ig.ch-epr-mhealth",
-      "version": "0.2.0",
+      "version": "1.0.0",
       "uri": "http://fhir.ch/ig/ch-epr-mhealth/ImplementationGuide/ch.fhir.ig.ch-epr-mhealth",
       "id": "ch_fhir_ig_ch_epr_mhealth"
     }
@@ -66,25 +66,18 @@
     "resource": [
       {
         "reference": {
-          "reference": "StructureDefinition/ch-report-composition"
+          "reference": "StructureDefinition/ch-test-composition"
         },
-        "name": "CH Report Composition",
-        "description": "Profile on Report for CH RAD-POC",
+        "name": "CH Test Composition",
+        "description": "Definition for the Composition resource in the context of CH Test-Order.",
         "exampleBoolean": false
       },
       {
         "reference": {
           "reference": "Questionnaire/QuestionnaireRadiologyOrderPoC"
         },
-        "name": "Questionnaire Radiology Order PoC",
-        "description": "Questionnaire Radiology Order for Proof Of Concpt",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "QuestionnaireResponse/SenderPrefilledQuestionnaireResponse"
-        },
-        "name": "SenderPrefilledQuestionnaireResponse",
+        "name": "Questionnaire Radiology Order",
+        "description": "Example for Questionnaire",
         "exampleBoolean": true
       },
       {
@@ -192,22 +185,6 @@
         },
         "exampleBoolean": false,
         "name": "v3 map for AdministrativeGender"
-      },
-      {
-        "reference": {
-          "reference": "StructureMap/OrfQrToBundle"
-        },
-        "description": "\r\nORF QuestionnaireResponse to Bundle\r\n2021-01-11 Oliver Egger, copyright ahdis ag, Apache License\r\nQRF Questionnaire: http://build.fhir.org/ig/hl7ch/ch-orf/Questionnaire-order-referral-form.html\r\nQRF QuestionnaireResponse: http://build.fhir.org/ig/hl7ch/ch-orf/QuestionnaireResponse-order-referral-form.xml.html\r\nBundle: http://build.fhir.org/ig/hl7ch/ch-orf/StructureDefinition-ch-orf-document.html",
-        "exampleBoolean": false,
-        "name": "OrfQrToBundle"
-      },
-      {
-        "reference": {
-          "reference": "StructureMap/RadOrderQrToBundle"
-        },
-        "description": "Radiologoy QuestionnaireResponse to Bundle",
-        "exampleBoolean": false,
-        "name": "RadOrderQrToBundle"
       },
       {
         "reference": {
