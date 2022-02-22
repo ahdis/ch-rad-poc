@@ -571,6 +571,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].item[=].required = true
 
+* item[=].item[=].item[=].item[+].linkId = "sender.author.organization.gln"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.identifier:GLN"
+* item[=].item[=].item[=].item[=].text = "GLN"
+* item[=].item[=].item[=].item[=].type = #string
+
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.streetAddressLine"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.line"
 * item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
